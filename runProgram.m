@@ -1,4 +1,4 @@
-function [X, Y, U, V, i, WCSS, DI, DBI] = runProgram(dataset, clusterCount, initialMean)
+function [DI, DBI] = runProgram(dataset, clusterCount, initialMean)
 X = importX(dataset);
 Y = importY(dataset);
 
@@ -9,8 +9,8 @@ sampleCount = size(X,1);
 kindex = randsample(1:length(X), clusterCount);
 V = X(kindex,:);
 %V = initialMean;
-[U, V, i, WCSS] = updateAlgo(X, V, clusterCount, featureCount, sampleCount);
-plotClusters(X, Y);
+[U, V] = updateAlgo(X, V, clusterCount, featureCount, sampleCount);
+plotActualClusters(X, Y);
 plotKClusters(X, U, V);
 DI = DunnIndex(X, U, V, clusterCount, sampleCount);
 DBI = DavisBouldinIndex(X, U, V, clusterCount, sampleCount);

@@ -11,22 +11,22 @@ end;
 
 valueSet = unique(class);
 CM = jet(length(valueSet) + 1);
-figure();
+figure;
 for i = 1:length(valueSet)
     Xtemp = X(class == valueSet(i,1), :);
-    scatter3(Xtemp(:,1), Xtemp(:,4), Xtemp(:,3), 15, ...
+    scatter3(Xtemp(:,1), Xtemp(:,3), Xtemp(:,4), 15, ...
     'MarkerFaceColor', CM(i+1,:));
     hold on;
 end;
 title ('Clusters from K means algorithm');
 legend ('Cluster 1', 'Cluster 2', 'Cluster 3');
 xlabel (features{1,1});
-ylabel (features{4,1});
-zlabel (features{3,1});
+ylabel (features{3,1});
+zlabel (features{4,1});
 
 CM = jet(length(valueSet) + 2);
 for i=1:length(valueSet)
-    scatter3(V(i,1), V(i,4), V(i,3), ...
+    scatter3(V(i,1), V(i,3), V(i,4), ...
         'LineWidth', 10, ...
         'MarkerFaceColor', CM(i+2,:));
 end;

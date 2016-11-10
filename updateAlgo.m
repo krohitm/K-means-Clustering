@@ -11,9 +11,9 @@ for i = 1:50
     end;
     Uprev = U;
 end;
-figure();
-hold on;
-plot (1:size(WCSS,1), WCSS);
-xlabel ('No. of iterations');
-ylabel ('Within Cluster Square Sum');
-title ('Objective function against iterations');
+%figure();
+%hold on;
+%plot (1:size(WCSS,1), WCSS);
+%xlabel ('No. of iterations');
+%ylabel ('Within Cluster Square Sum');
+%title ('Objective function against iterations');

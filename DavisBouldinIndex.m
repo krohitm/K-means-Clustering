@@ -13,10 +13,10 @@ for i=1:(clusterCount - 1)
     end;
 end;
 
-DBI = Inf;
+DBI = 0;
 for i = 1:(clusterCount - 1)
     for j = (i+1):clusterCount
-        DBI = (scatter(i,1) + scatter(j,1))./delta(i,j);
+        DBI = DBI + (scatter(i,1) + scatter(j,1))./delta(i,j);
     end;
 end;
 DBI = DBI/clusterCount;
